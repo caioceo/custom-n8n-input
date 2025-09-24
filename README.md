@@ -29,7 +29,7 @@ Como rodar a infraestrutura (n8n + Postgres)
 0) Clonar o repositório
 ```
 git clone https://github.com/caioceo/custom-n8n-input
-cd onfly-task
+cd custom-n8n-input
 ```
 1) Build da imagem do n8n com Node 22 e os custom nodes (o Dockerfile já compila o TS → JS)
 ```
