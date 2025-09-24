@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: n8n
+      POSTGRES_DB: n8n
+    volumes:
+      - "./.postgres-data:/var/lib/postgresql/data"
+    restart: unless-stopped
+    networks:
+      - onfly-network
+  n8n:
+    image: custom-n8n-node22
+    ports:
+      - "5678:5678"
+    volumes:
+      - "./.n8n:/home/node/.n8n"
+    environment:
+      GENERIC_TIMEZONE: America/Sao_Paulo
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: n8n
+      N8N_BASIC_AUTH_ACTIVE: "false"
+      N8N_ENABLE_FILE_SYSTEM_NODES: "true"
+      N8N_DISABLE_ANONYMOUS_USAGE: "true"
+      N8N_CUSTOM_EXTENSIONS: "/home/node/.n8n/custom"
+    restart: unless-stopped
+    networks:
+      - onfly-network
+
+networks:
+  onfly-network:
+    driver: bridge

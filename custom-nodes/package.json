@@ -1,0 +1,25 @@
+{
+  "name": "onfly-custom-nodes",
+  "version": "1.0.0",
+  "description": "Custom nodes for n8n",
+  "main": "dist/nodes/Random/Random.node.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["n8n", "nodes"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "n8n-workflow": "^1.85.4"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Random/Random.node.js"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+# Node / TypeScript
+**/node_modules/
+**/dist/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment files
+.env
+.env.*
+
+# n8n / Postgres data (persistência local)
+.n8n/
+.postgres-data/
+
+# Logs
+*.log
+logs/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.code-workspace
+
+# Temporary / cache
+tmp/
+temp/
+.tmp/
+**/.cache/
