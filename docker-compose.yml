@@ -17,7 +17,8 @@ services:
     ports:
       - "5678:5678"
     volumes:
-      - "./.n8n:/home/node/.n8n"
+      - "./.n8n/data:/home/node/.n8n/data"
+      - "./.n8n/config:/home/node/.n8n/config"
     environment:
       GENERIC_TIMEZONE: America/Sao_Paulo
       DB_TYPE: postgresdb

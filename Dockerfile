@@ -20,10 +20,14 @@ RUN npm install && npm run build
 # dir workspace
 WORKDIR /home/node/.n8n
 
-# copiar nodes compilados para o diretório correto do n8n
-RUN mkdir -p /home/node/.n8n/nodes && \
-    cp -r /opt/custom-nodes/dist/* /home/node/.n8n/nodes/ && \
-    cp /opt/custom-nodes/package.json /home/node/.n8n/
+# instalar custom nodes diretamente no diretório do n8n
+# 1) cria o diretório custom do n8n
+# 2) copia a estrutura original dos nodes (inclui SVGs e TS)
+# 3) copia os JS compilados da pasta dist principal
+RUN mkdir -p /home/node/.n8n/custom && \
+    cp -r /opt/custom-nodes/nodes/* /home/node/.n8n/custom/ && \
+    find /opt/custom-nodes/dist/nodes -name "*.js" -exec cp {} /home/node/.n8n/custom/Random/ \; && \
+    chown -R node:node /home/node/.n8n
 
 EXPOSE 5678
 
