@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM public.ecr.aws/docker/library/node:22-alpine
 
 # dependências do sistema necessárias para n8n e nodes personalizados
 RUN apk add --no-cache \
