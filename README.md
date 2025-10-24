@@ -1,5 +1,3 @@
-Onfly – Desafio Técnico (n8n + Node 22 + Custom Node)
-
 Visão geral
 - Infra local com Docker Compose: n8n self-hosted (1.85.4) + Postgres 15
 - Custom Node: Random (True Random Number Generator) usando Random.org
